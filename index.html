@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="智航维镜无人机智能运维手册系统身份验证与设备安全检验" />
+    <title>智航维镜｜身份验证与设备安检</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <img class="brand" src="assets/brand-header.png" alt="智航维镜 AeroMaint Copilot 无人机智能运维手册系统" />
+      <div class="topbar-status" aria-label="系统状态">
+        <span class="status-dot" aria-hidden="true"></span>
+        安全服务在线
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <div class="eyebrow"><span></span> SECURE ACCESS</div>
+        <h1 id="page-title">身份验证与<br /><em>设备安全检验</em></h1>
+        <p>请核验操作人员与设备信息，确认设备当前使用状态后进入智能维修手册。</p>
+        <div class="security-note">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4.5 5v5.7c0 4.8 3.1 9.2 7.5 10.8 4.4-1.6 7.5-6 7.5-10.8V5L12 2Zm3.5 7.4-4.2 5.2-2.8-2.5 1.1-1.2 1.5 1.4 3.1-3.9 1.3 1Z" /></svg>
+          <span>加密连接 · 操作全程留痕</span>
+        </div>
+      </section>
+
+      <section class="auth-card" aria-labelledby="form-title">
+        <div class="card-heading">
+          <div>
+            <span class="step-label">STEP 01</span>
+            <h2 id="form-title">访问身份核验</h2>
+          </div>
+          <div class="shield-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2 4.5 5v5.7c0 4.8 3.1 9.2 7.5 10.8 4.4-1.6 7.5-6 7.5-10.8V5L12 2Zm0 2.2 5.5 2.2v4.3c0 3.7-2.2 7.2-5.5 8.7-3.3-1.5-5.5-5-5.5-8.7V6.4L12 4.2Z" /></svg>
+          </div>
+        </div>
+
+        <form id="verification-form" novalidate>
+          <label class="field" for="employee-id">
+            <span>工号</span>
+            <div class="input-wrap">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0 2c-5 0-9 2.5-9 5.5V22h18v-2.5C21 16.5 17 14 12 14Z" /></svg>
+              <input id="employee-id" name="employeeId" type="text" autocomplete="username" placeholder="请输入维修人员工号" maxlength="24" />
+            </div>
+            <small class="field-error" data-error-for="employee-id"></small>
+          </label>
+
+          <label class="field" for="device-id">
+            <span>设备号</span>
+            <div class="input-wrap">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 2 1.4 3.1L12 6l3.6-.9L17 2l3 3-1.2 3.2L20 12l-1.2 3.8L20 19l-3 3-3.4-1.2L12 22l-3.6-1.2L5 22l-3-3 1.2-3.2L2 12l1.2-3.8L2 5l3-3 2 0Zm5 6.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z" /></svg>
+              <input id="device-id" name="deviceId" type="text" placeholder="请输入无人机设备编号" maxlength="32" />
+            </div>
+            <small class="field-error" data-error-for="device-id"></small>
+          </label>
+
+          <fieldset class="device-state">
+            <legend>设备当前状态</legend>
+            <p>该无人机设备是否处于工作使用状态？</p>
+            <div class="radio-grid">
+              <label class="radio-option">
+                <input type="radio" name="deviceStatus" value="active" checked />
+                <span class="custom-radio" aria-hidden="true"></span>
+                <span class="radio-copy"><strong>正在使用</strong><small>设备处于运行或作业状态</small></span>
+              </label>
+              <label class="radio-option">
+                <input type="radio" name="deviceStatus" value="stopped" />
+                <span class="custom-radio" aria-hidden="true"></span>
+                <span class="radio-copy"><strong>已停止使用</strong><small>设备已停机，可进行检修</small></span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="alert" id="form-alert" role="status" aria-live="polite"></div>
+          <button class="submit-btn" type="submit">
+            <span>验证并进入系统</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13 5 7 7-7 7-1.4-1.4 4.6-4.6H4v-2h12.2l-4.6-4.6L13 5Z" /></svg>
+          </button>
+        </form>
+
+        <p class="help-text">遇到身份或设备异常？请联系系统管理员处理</p>
+      </section>
+    </main>
+
+    <footer>© 2026 AeroMaint Copilot · 无人机智能运维保障平台</footer>
+    <script src="script.js"></script>
+  </body>
+</html>
